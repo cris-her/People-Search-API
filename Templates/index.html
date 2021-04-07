@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<h1>Describe a person as follows!</h2>
+<p>(age group) (skin color) (gender) with (hair color) hair wearing a (clothing color) (clothing) - example: <em>a young white woman with blue hair wearing a red shirt</em></p>
+<audio controls>
+    <source src="{{ url_for('static', filename = 'description.wav') }}" type="audio/wav">
+</audio>
+<!--<p>{{content}}</p>-->
+{% for x in range(10) %}
+    {% if x % 2 == 1 %}
+        <!--<p>{{x}}</p>-->
+    {% endif %}
+{% endfor %}
+
+<div id="controls">
+   <button id="recordButton">Record</button>
+   <button id="pauseButton" disabled>Pause</button>
+   <button id="stopButton" disabled>Stop</button>
+</div>
+<div id="formats">Format: start recording to see sample rate</div>
+<p><strong>Recordings:</strong></p>
+<ol id="recordingsList"></ol>
+<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+<button onclick="location.href='http://www.localhost:9090/predict'" type="button">
+    Predict</button>
+{% endblock %}
