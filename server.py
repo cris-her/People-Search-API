@@ -19,7 +19,7 @@ from flask import jsonify
 from pydub import AudioSegment as am
   
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 def to_numpy(tensor):
     return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
 
