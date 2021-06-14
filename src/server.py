@@ -108,5 +108,5 @@ def predict():
 
 if __name__ == "__main__":
     quartznet = nemo_asr.models.EncDecCTCModel.from_pretrained(model_name="QuartzNet15x5Base-En")
-    ort_session = onnxruntime.InferenceSession('models/asr.onnx')
+    #ort_session = onnxruntime.InferenceSession('models/asr.onnx')
     app.run(host="0.0.0.0", port=6006, debug=True)
